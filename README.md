@@ -17,8 +17,8 @@ pip install -U "flax[all]" # 0.10.3
 
 ## Experiment
 
-To run the SGHMC and PX-SGHMC _without_ data augmentation, use the following command lines.
-To enable data augmentation, set `--data_augmentation simple`.
+To run the SGHMC and PX-SGHMC _without_ data augmentation (as described in Section 5.2.1), use the following command lines.
+For results _with_ data augmentation (as described in Section 5.2.2), set `--data_augmentation simple` and `--posterior_temperature 0.01`.
 
 ```bash
 # SGHMC
@@ -41,30 +41,18 @@ python scripts/run_pxsghmc.py \
   --seed 42 --save save/cifar10/pxsghmc/42/
 ```
 
-We executed the above command lines on a single RTX A6000 machine, with each run taking approximately 2 hours, and obtained the following results:
+We executed the above command lines on a single RTX A6000 machine, with each run taking approximately 2 hours, and obtained the following results: PX-SGHMC outperforms SGHMC in both classification error (`val/ens_err`) and negative log-likelihood (`val/ens_nll`), owing to the ensemble gain from improved ensemble diversity (`val/ens_emb`).
 
 - [`save/cifar10/sghmc/42/console.log`](save/cifar10/sghmc/42/console.log)
   ```
   (...)
-  [Sample    100/   100] (...) 
+  [Sample    100/   100] (...) val/ens_err: 1.343e-01, val/ens_nll: 4.212e-01, val/ens_amb: 1.878e-01
   ```
 
 - [`save/cifar10/pxsghmc/42/console.log`](save/cifar10/pxsghmc/42/console.log)
   ```
   (...)
-  [Sample    100/   100] (...) 
-  ```
-
-- [`save/cifar10-aug/sghmc/42/console.log`](save/cifar10-aug/sghmc/42/console.log)
-  ```
-  (...)
-  [Sample    100/   100] (...) 
-  ```
-
-- [`save/cifar10-aug/pxsghmc/42/console.log`](save/cifar10-aug/pxsghmc/42/console.log)
-  ```
-  (...)
-  [Sample    100/   100] (...) 
+  [Sample    100/   100] (...) val/ens_err: 1.185e-01, val/ens_nll: 3.763e-01, val/ens_amb: 2.408e-01
   ```
 
 ## Citation
