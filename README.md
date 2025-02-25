@@ -3,7 +3,7 @@
 [![ICLR 2025](https://img.shields.io/badge/ICLR-2025-blue.svg)](https://openreview.net/forum?id=exgLs4snap)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Code for the paper "[Parameter Expanded Stochastic Gradient Markov Chain Monte Carlo (ICLR 2025)](https://openreview.net/forum?id=exgLs4snap)."
+Code for the paper [Parameter Expanded Stochastic Gradient Markov Chain Monte Carlo (ICLR 2025)](https://openreview.net/forum?id=exgLs4snap).
 
 ## Setup
 
